@@ -5,17 +5,21 @@ import "fmt"
 func main() {
 	msg := "Hello......World!"
 	fmt.Println(msg)
-	bytes := addBytes(msg)
-	fmt.Println(bytes)
+	info := charInfo(msg)
+	fmt.Println(info)
 }
 
-func addBytes(s string) int {
+func charInfo(s string) map[string]int {
 
-	var res int
+	var res = make(map[string]int)
+	var byteCt int
 
 	for _, v := range s {
-		res = res + int(v)
+		byteCt = byteCt + int(v)
 	}
+
+	res["Byte Count"] = byteCt
+	res["Character Count"] = len(s)
 
 	return res
 
